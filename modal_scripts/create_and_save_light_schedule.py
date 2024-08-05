@@ -23,18 +23,12 @@ VOLUME_NAME = "evening-light"
 VOLUME_LOCATION = "/root/evening_light"
 
 circadian_pip = "git+https://github.com/ftavella/circadian.git@chang14-light"
-circadian_deps = [
-    "fastcore", "polars", "scipy",
-    "pandas", "matplotlib", "tensorflow",
-    "scikit-learn", "keras-cv",
-]
 
 app = modal.App(name=APP_NAME)
 
 image = (
     modal.Image.debian_slim(python_version=PYTHON_VERSION)
     .apt_install("git")
-    # .pip_install(*circadian_deps)
     .pip_install(circadian_pip)
     .run_commands(["echo 'Built'"])
 )
