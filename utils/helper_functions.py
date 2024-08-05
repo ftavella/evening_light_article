@@ -28,3 +28,10 @@ def calculate_cbtmin(time, data, simulation_condition):
     trajectory = DynamicalTrajectory(time, data[f'{simulation_condition}_trajectory_states'])
     cbtmin = Skeldon23().cbt(trajectory)[:-1]
     return cbtmin
+
+def calculate_sleep_duration(time, data, simulation_condition):
+    sleep = data[f'{simulation_condition}_sleep']
+    sleep_onset_idx = np.where(np.diff(sleep) == 1)[0][:-1] # Ignore the last onset
+    sleep_offset_idx = np.where(np.diff(sleep) == -1)[0][1:] # Ignore the first offset
+    sleep_duration = time[sleep_offset_idx] - time[sleep_onset_idx]
+    return sleep_duration
