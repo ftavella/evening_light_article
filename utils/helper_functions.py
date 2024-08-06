@@ -33,5 +33,8 @@ def calculate_sleep_duration(time, data, simulation_condition):
     sleep = data[f'{simulation_condition}_sleep']
     sleep_onset_idx = np.where(np.diff(sleep) == 1)[0][:-1] # Ignore the last onset
     sleep_offset_idx = np.where(np.diff(sleep) == -1)[0][1:] # Ignore the first offset
+    min_length = min(len(sleep_onset_idx), len(sleep_offset_idx))
+    sleep_onset_idx = sleep_onset_idx[:min_length]
+    sleep_offset_idx = sleep_offset_idx[:min_length]
     sleep_duration = time[sleep_offset_idx] - time[sleep_onset_idx]
     return sleep_duration
