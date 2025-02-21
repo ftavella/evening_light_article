@@ -29,10 +29,16 @@ def calculate_cbtmin(time, data, simulation_condition):
     cbtmin = Skeldon23().cbt(trajectory)[:-1]
     return cbtmin
 
-def calculate_sleep_duration(time, data, simulation_condition):
+def calculate_sleep_duration(time, data, simulation_condition, light_condition='early_light'):
     sleep = data[f'{simulation_condition}_sleep']
-    sleep_onset_idx = np.where(np.diff(sleep) == 1)[0][:-1] # Ignore the last onset
-    sleep_offset_idx = np.where(np.diff(sleep) == -1)[0][1:] # Ignore the first offset
+    if light_condition == 'early_light':
+        sleep_onset_idx = np.where(np.diff(sleep) == 1)[0][:-1] # Ignore the last onset
+        sleep_offset_idx = np.where(np.diff(sleep) == -1)[0][1:] # Ignore the first offset
+    elif light_condition == 'late_light':
+        sleep_onset_idx = np.where(np.diff(sleep) == 1)[0][1:-1] # Ignore the first and last onset
+        sleep_offset_idx = np.where(np.diff(sleep) == -1)[0][1:] # Ignore the first offset
+    else:
+        raise ValueError(f'light_condition must be either "early_light" or "late_light" but got {light_condition}')
     min_length = min(len(sleep_onset_idx), len(sleep_offset_idx))
     sleep_onset_idx = sleep_onset_idx[:min_length]
     sleep_offset_idx = sleep_offset_idx[:min_length]
