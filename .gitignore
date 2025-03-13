@@ -4,4 +4,7 @@
 *.npy
 .venv
 data/sleep_parameter_exploration/*.npz
+data/light_sensitivity_parameter_exploration_old/
+data/light_sensitivity_parameter_exploration/*.npz
+data/chang14_selected_light_sensitivity_parameters_old/
 data/light_sensitivity_parameter_exploration/*.npz
