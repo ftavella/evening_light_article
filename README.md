@@ -1,4 +1,4 @@
-# **When do natural and artificial light matter to sleep and circadian metrics? A mathematical modeling approach**
+# **From Sunlight to Screens: Modeling When Light Exposure Matters Most for Sleep and Circadian Health**
 
 Franco Tavella, Michael Gradisar, Renske Lok, Olivia Walch
 
@@ -8,7 +8,8 @@ This repository provides the implementation of the mathematical models used to s
 
 ## Paper Abstract
 
-Understanding the effects of light at different times on the body is a topic of enduring interest. In this paper, we use mathematical models from the literature to simulate what would be expected to the human circadian clock on different light schedules. We reproduce an experiment which showed eReaders capable of delaying sleep and melatonin onset. We find that we are able to match the delay in sleep timing but not the phase shift in melatonin, except in cases where the subjects are assumed to be highly light sensitive. Next, we show that daytime light exposure is predicted to reduce the amount of sleep onset latency and phase shift that would be expected from the eReader light. Finally, we explore how the timing of a bright light pulse during the day changes outcomes, such as sleep onset and circadian amplitude, and how these effects interact with light during the other hours of the 24 hour day.
+Understanding the effects of light on the body at different times of the 24-hr solar day is a topic of increasing interest. In this paper, we use mathematical models from the literature to simulate what would be expected of the human circadian clock from different light schedules. We reproduce an experiment which showed eReaders capable of delaying sleep and melatonin onset. The model is able to match the delay in sleep timing (~ 5 minutes) when results are averaged across parameter sets, but not the full phase shift reported empirically.  However, certain initial conditions and parameters are capable of phase shifts of achieving a phase shift of 1.5 hours, consistent with the original study’s magnitude. We next examine the same paradigm under higher daytime light levels (increasing baseline illumination from 90 to 500 lux) , and find that brighter daytime exposure reduces both  sleep onset latency and phase delay  caused by evening eReader light. Finally, we explore how the timing of a bright light pulse during the day changes outcomes, such as sleep onset and circadian amplitude, and how these effects interact with light during the other hours of the 24-hour day. Together, these modeling results suggest robust daytime light exposure confers resilience against the circadian-disruptive effects of evening light and generate testable predictions regarding the timing and intensity of beneficial light interventions for maintaining circadian alignment. 
+
 
 ## Repository Contents
 
